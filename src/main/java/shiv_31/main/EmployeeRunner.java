@@ -1,25 +1,26 @@
 package shiv_31.main;
 
 
+import java.util.List;
+
 //import org.hibernate.SessionFactory;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+//import org.hibernate.SessionFactory;
 //import org.hibernate.cfg.Configuration;
 import org.hibernate.Transaction;
-import org.hibernate.boot.MetadataSources;
+//import org.hibernate.boot.MetadataSources;
 //import org.hibernate.boot.Metadata;
 //import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+//import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.MutationQuery;
+import org.hibernate.query.Query;
+
+import com.shiv.config.EmpConfiguration;
 
 import shiv_31.Employee;
 
 public class EmployeeRunner {
 
-<<<<<<< Updated upstream
-	public static void main(String[] args)  {
-		
-		Employee emp = new Employee("riya", "Female",38983);
-=======
 
 
 //	public static void delById(int id, Session session) {
@@ -47,9 +48,14 @@ public class EmployeeRunner {
 		
 		
 		
-		MutationQuery namedQuery = session.createNamedMutationQuery("updateAnEmployee");
-		namedQuery.setParameter("n", "Ram");
-		namedQuery.setParameter("i", 16);
+//		MutationQuery namedQuery = session.createNamedMutationQuery("updateAnEmployee");
+//		namedQuery.setParameter("n", "Shreya");
+//		namedQuery.setParameter("i", 10);
+//		namedQuery.executeUpdate();
+		
+		
+		MutationQuery namedQuery = session.createNamedMutationQuery("deleteEmployeeById");
+		namedQuery.setParameter("i", 10);
 		namedQuery.executeUpdate();
 		
 		
@@ -102,7 +108,6 @@ public class EmployeeRunner {
 
 		
 		
->>>>>>> Stashed changes
 		
 //		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
 //		SessionFactory sessionFactory = cfg.buildSessionFactory();
@@ -116,15 +121,12 @@ public class EmployeeRunner {
 //		Metadata metadata = new MetadataSources(new StandardServiceRegistryBuilder() ).getMetadataBuilder().build();
 		
 		
-		SessionFactory sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build()).getMetadataBuilder().build().buildSessionFactory();
+//		SessionFactory sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build()).getMetadataBuilder().build().buildSessionFactory();
 		
-		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
+		
 	
-		session.persist(emp);
+		
 		tx.commit();
-<<<<<<< Updated upstream
-=======
 		
 		Query query1 = session.createQuery("from empp", Employee.class);
 		List list = query1.list();
@@ -132,7 +134,6 @@ public class EmployeeRunner {
 		
 		
 		session.close();
->>>>>>> Stashed changes
 		
 		
 //		Employee employee = session.find(Employee.class,19);

@@ -14,7 +14,7 @@ import jakarta.persistence.Transient;
 
 
 @NamedQuery(name = "updateAnEmployee" , query = "update empp set name=:n where id=:i")
-//@NamedQuery(name = "deleteEmployeeById" , query = "delete from empp where id=:i")
+@NamedQuery(name = "deleteEmployeeById" , query = "delete from empp where id=:i")
 
 @Entity(name="empp")
 public class Employee {
@@ -26,6 +26,9 @@ public class Employee {
 	private String name;
 	private String gender;
 	private int salary;
+	@Transient
+	private String country;
+	
 	
 	
 	
@@ -35,11 +38,12 @@ public class Employee {
 
 
 
-	public Employee( String name, String gender, int salary) {
+	public Employee( String name, String gender, int salary ,String country) {
 		super();
 		this.name = name;
 		this.gender = gender;
 		this.salary = salary;
+		this.country = country;
 	}
 
 
