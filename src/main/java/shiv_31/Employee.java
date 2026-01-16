@@ -6,11 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-<<<<<<< Updated upstream
-=======
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Transient;
->>>>>>> Stashed changes
 
 
 @NamedQuery(name = "updateAnEmployee" , query = "update empp set name=:n where id=:i")
