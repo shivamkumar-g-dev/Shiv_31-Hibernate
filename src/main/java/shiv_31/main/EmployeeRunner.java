@@ -17,6 +17,7 @@ import org.hibernate.Transaction;
 
 import com.shiv.config.EmpConfiguration;
 
+import shiv_31.Address;
 import shiv_31.Employee;
 
 public class EmployeeRunner {
@@ -34,6 +35,10 @@ public class EmployeeRunner {
 	public static void main(String[] args) {
 
 		Employee emp1 = new Employee("Avya", "FeMale", 64548);
+		Address add1 = new Address("Noida","UP");
+		
+		emp1.setAddress(add1);
+				
 //		Employee emp2 = new Employee("Nitin", "FeMale", 64548, "IND");
 //		Employee emp3 = new Employee("Neelam", "FeMale", 64548, "IND");
 //		Employee emp4 = new Employee("Jack", "Male", 64548, "IND");
@@ -124,7 +129,7 @@ public class EmployeeRunner {
 //		SessionFactory sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build()).getMetadataBuilder().build().buildSessionFactory();
 		
 		
-	
+		session.persist(add1);
 		session.persist(emp1);
 		tx.commit();
 		

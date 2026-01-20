@@ -24,7 +24,7 @@ public class EmpConfiguration {
 		properties.put(Environment.JAKARTA_JDBC_PASSWORD,"Shivam@12");
 		properties.put(Environment.HBM2DDL_AUTO,"create");
 		properties.put(Environment.SHOW_SQL,"true");
-//		properties.put(Environment.FORMAT_SQL,"true");
+		properties.put(Environment.FORMAT_SQL,"true");
 
 //		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().applySettings(properties).build();
 //		Metadata metaData = new MetadataSources(ssr).addAnnotatedClass(shiv_31.Employee.class).getMetadataBuilder().build();
