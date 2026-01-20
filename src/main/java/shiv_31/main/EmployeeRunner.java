@@ -1,36 +1,26 @@
 package shiv_31.main;
 
 
-<<<<<<< Updated upstream
-=======
 //import java.util.List;
 
->>>>>>> Stashed changes
 //import org.hibernate.SessionFactory;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+//import org.hibernate.SessionFactory;
 //import org.hibernate.cfg.Configuration;
 import org.hibernate.Transaction;
-import org.hibernate.boot.MetadataSources;
+//import org.hibernate.boot.MetadataSources;
 //import org.hibernate.boot.Metadata;
 //import org.hibernate.boot.registry.StandardServiceRegistry;
-<<<<<<< Updated upstream
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-=======
 //import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 //import org.hibernate.query.MutationQuery;
 //import org.hibernate.query.Query;
 
 import com.shiv.config.EmpConfiguration;
->>>>>>> Stashed changes
 
 import shiv_31.Employee;
 
 public class EmployeeRunner {
 
-<<<<<<< Updated upstream
-	public static void main(String[] args)  {
-=======
 
 
 //	public static void delById(int id, Session session) {
@@ -117,9 +107,7 @@ public class EmployeeRunner {
 //		System.out.println(list1);
 
 		
->>>>>>> Stashed changes
 		
-		Employee emp = new Employee("riya", "Female",38983);
 		
 //		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
 //		SessionFactory sessionFactory = cfg.buildSessionFactory();
@@ -133,16 +121,10 @@ public class EmployeeRunner {
 //		Metadata metadata = new MetadataSources(new StandardServiceRegistryBuilder() ).getMetadataBuilder().build();
 		
 		
-		SessionFactory sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build()).getMetadataBuilder().build().buildSessionFactory();
+//		SessionFactory sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build()).getMetadataBuilder().build().buildSessionFactory();
 		
-		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
+		
 	
-<<<<<<< Updated upstream
-		session.persist(emp);
-		tx.commit();
-		
-=======
 		session.persist(emp1);
 		tx.commit();
 		
@@ -153,7 +135,6 @@ public class EmployeeRunner {
 		
 //		session.close();
 		
->>>>>>> Stashed changes
 		
 //		Employee employee = session.find(Employee.class,19);
 //		System.out.println(employee);

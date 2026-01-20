@@ -5,14 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-<<<<<<< Updated upstream
-
-@Entity(name="empp")
-=======
 import jakarta.persistence.OneToOne;
 
 @Entity(name = "empp")
->>>>>>> Stashed changes
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +15,6 @@ public class Employee {
 	private String name;
 	private String gender;
 	private int salary;
-<<<<<<< Updated upstream
-	
-	
-=======
->>>>>>> Stashed changes
 	
 	@OneToOne
 	private Address address;
@@ -33,15 +23,6 @@ public class Employee {
 		super();
 	}
 
-<<<<<<< Updated upstream
-
-
-	public Employee( String name, String gender, int salary) {
-		super();
-		this.name = name;
-		this.gender = gender;
-		this.salary = salary;
-=======
 	public Employee(String name, String gender, int salary) {
 		this.name = name;
 		this.gender = gender;
@@ -52,7 +33,6 @@ public class Employee {
 
 	public Address getAddress() {
 		return address;
->>>>>>> Stashed changes
 	}
 
 	public void setAddress(Address address) {
