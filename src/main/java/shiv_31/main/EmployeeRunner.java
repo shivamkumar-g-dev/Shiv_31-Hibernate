@@ -33,11 +33,65 @@ public class EmployeeRunner {
 	
 	
 	public static void main(String[] args) {
-
-		Employee emp1 = new Employee("Avya", "FeMale", 64548);
-		Address add1 = new Address("Noida","UP");
+		
+		Employee emp1 = new Employee();
+		emp1.setName("Ram");
+		emp1.setGender("M");
+		emp1.setSalary(570000);
+		
+		
+		Address add1 = new Address();
+		add1.setCity("Noida");
+		add1.setState("UP");
+		add1.setEmployee(emp1);
 		
 		emp1.setAddress(add1);
+		
+		Employee emp2 = new Employee();
+		emp2.setName("Niyati");
+		emp2.setGender("F");
+		emp2.setSalary(100000);
+		
+		
+		Address add2 = new Address();
+		add2.setCity("Indirapuram");
+		add2.setState("UP");
+		add2.setEmployee(emp2);
+		
+		emp2.setAddress(add2);
+		
+		
+		Session session = EmpConfiguration.getSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
+		session.persist(add1);
+		session.persist(emp1);
+		session.persist(add2);
+		session.persist(emp2);
+		tx.commit();
+		
+		Employee employee = session.find(Employee.class, 1);
+		System.out.println(employee);
+		System.out.println(employee.getAddress());
+		
+		Address address = session.find(Address.class, 1);
+		System.out.println(address);
+		System.out.println(address.getEmployee());
+		
+		
+		Employee employee2 = session.find(Employee.class, 2);
+		System.out.println(employee2);
+		System.out.println(employee2.getAddress());
+		
+		Address address2 = session.find(Address.class, 2);
+		System.out.println(address2);
+		System.out.println(address2.getEmployee());
+		
+		
+
+//		Employee emp1 = new Employee("Avya", "FeMale", 64548);
+//		Address add1 = new Address("Noida","UP");
+		
+//		emp1.setAddress(add1);
 				
 //		Employee emp2 = new Employee("Nitin", "FeMale", 64548, "IND");
 //		Employee emp3 = new Employee("Neelam", "FeMale", 64548, "IND");
@@ -48,9 +102,7 @@ public class EmployeeRunner {
 		
 		
 		
-		Session session = EmpConfiguration.getSessionFactory().openSession();
-		Transaction tx = session.beginTransaction();
-		
+
 		
 		
 //		MutationQuery namedQuery = session.createNamedMutationQuery("updateAnEmployee");
@@ -129,9 +181,9 @@ public class EmployeeRunner {
 //		SessionFactory sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build()).getMetadataBuilder().build().buildSessionFactory();
 		
 		
-		session.persist(add1);
-		session.persist(emp1);
-		tx.commit();
+//		session.persist(add1);
+//		session.persist(emp1);
+//		tx.commit();
 		
 //		Query query1 = session.createQuery("from empp", Employee.class);
 //		List list = query1.list();

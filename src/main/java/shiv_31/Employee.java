@@ -17,10 +17,12 @@ public class Employee {
 	private String gender;
 	private int salary;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "employee")
 	@JoinColumn(name = "add_id")
 	private Address address;
 
+	
+	
 	public Employee() {
 		super();
 	}
@@ -30,6 +32,7 @@ public class Employee {
 		this.gender = gender;
 		this.salary = salary;
 	}
+	
 	
 	
 
