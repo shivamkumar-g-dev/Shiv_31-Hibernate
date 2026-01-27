@@ -55,7 +55,7 @@ public class EmployeeRunner {
 		
 		Address add2 = new Address();
 		add2.setCity("Indirapuram");
-		add2.setState("UP");
+		add2.setState("UP");  
 		add2.setEmployee(emp2);
 		
 		emp2.setAddress(add2);
@@ -67,7 +67,7 @@ public class EmployeeRunner {
 		session.persist(emp1);
 		session.persist(add2);
 		session.persist(emp2);
-		tx.commit();
+		tx.commit(); 
 		
 		Employee employee = session.find(Employee.class, 1);
 		System.out.println(employee);
