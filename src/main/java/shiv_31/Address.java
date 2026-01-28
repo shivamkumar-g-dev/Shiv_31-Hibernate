@@ -4,32 +4,32 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
+//import jakarta.persistence.OneToOne;
 
 @Entity
 public class Address {
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int hNo;
 	private String city, state;
-	
-	@OneToOne
+
+	@ManyToOne
 	private Employee employee;
 
 	public Address() {
 		super();
-
 	}
 
-	public Address( String city, String state) {
+	public Address(String city, String state) {
 		super();
-//		this.hNo = hNo;
 		this.city = city;
 		this.state = state;
 	}
 	
+	
+
 	public Employee getEmployee() {
 		return employee;
 	}
@@ -38,12 +38,9 @@ public class Address {
 		this.employee = employee;
 	}
 
-	
 	public int gethNo() {
 		return hNo;
 	}
-	
-	
 
 	public void sethNo(int hNo) {
 		this.hNo = hNo;
