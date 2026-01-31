@@ -3,8 +3,8 @@ package shiv_31.main;
 
 import com.shiv.config.EmpConfiguration;
 import org.hibernate.Transaction;
-
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
 import shiv_31.Address;
@@ -27,67 +27,83 @@ import shiv_31.Employee;
 public class EmployeeRunner {
 	public static void main(String[] args) {
 		
-		
-		Employee emp1 = new Employee();
-		emp1.setName("Shivam");
-		emp1.setGender("M");
-		emp1.setSalary(400000);
+		Employee emp1 = new Employee("Shivam", "M", 400000);
+        Employee emp2 = new Employee("Avya", "F", 350000);
 
-		Address add1 = new Address();
-		add1.setCity("Noida");
-		add1.setState("UP");
-		add1.setEmployee(emp1);
-		
-		Address add2 = new Address();
-		add2.setCity("GZB");
-		add2.setState("UP");
-		add2.setEmployee(emp1);
-		
-		
-		Address add3 = new Address();
-		add3.setCity("Lucknow");
-		add3.setState("UP");
-		add3.setEmployee(emp1);
-	
-		ArrayList<Address> listOfAddresses = new ArrayList<>();
-		listOfAddresses.add(add1);
-		listOfAddresses.add(add2);
-		listOfAddresses.add(add3);
-		
-		
-		emp1.setAddresses(listOfAddresses);
-		
-		
+        Address add1 = new Address("Noida", "UP");
+        Address add2 = new Address("Delhi", "DL");
 
-		Session session = EmpConfiguration.getSessionFactory().openSession();
-		Transaction tx = session.beginTransaction();
+        List<Address> addressList = new ArrayList<>();
+        addressList.add(add1);
+        addressList.add(add2);
+
+        emp1.setAddresses(addressList);
+        emp2.setAddresses(addressList);
+
+        Session session = EmpConfiguration.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+
+        session.persist(emp1);
+        session.persist(emp2);
+
+        tx.commit();
+        session.close();
+
 		
-		session.persist(add1);
-		session.persist(add2);
-		session.persist(add3);
-		session.persist(emp1);
-		tx.commit();
 		
-		
-		Employee employee = session.find(Employee.class, 1);
-		System.out.println(employee);
-		System.out.println(employee.getAddresses());
-		
-		
-		Address address = session.find(Address.class, 2);
-		System.out.println(address);
-		System.out.println(address.getEmployee());
+//		Employee emp1 = new Employee();
+//		emp1.setName("Shivam");
+//		emp1.setGender("M");
+//		emp1.setSalary(400000);
+//
+//		Address add1 = new Address();
+//		add1.setCity("Noida");
+//		add1.setState("UP");
+//		add1.setEmployee(emp1);
+//		
+//		Address add2 = new Address();
+//		add2.setCity("GZB");
+//		add2.setState("UP");
+//		add2.setEmployee(emp1);
+//		
+//		
+//		Address add3 = new Address();
+//		add3.setCity("Lucknow");
+//		add3.setState("UP");
+//		add3.setEmployee(emp1);
+//	
+//		ArrayList<Address> listOfAddresses = new ArrayList<>();
+//		listOfAddresses.add(add1);
+//		listOfAddresses.add(add2);
+//		listOfAddresses.add(add3);
+//		
+//		
+//		emp1.setAddresses(listOfAddresses);
+//		
+//		
+//
+//		Session session = EmpConfiguration.getSessionFactory().openSession();
+//		Transaction tx = session.beginTransaction();
+//		
+//		session.persist(add1);
+//		session.persist(add2);
+//		session.persist(add3);
+//		session.persist(emp1);
+//		tx.commit();
+//		
+//		
+//		Employee employee = session.find(Employee.class, 1);
+//		System.out.println(employee);
+//		System.out.println(employee.getAddresses());
+//		
+//		
+//		Address address = session.find(Address.class, 2);
+//		System.out.println(address);
+//		System.out.println(address.getEmployee());
 //		
 //	
 	
 
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		

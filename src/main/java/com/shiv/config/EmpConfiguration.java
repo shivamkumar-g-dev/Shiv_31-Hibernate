@@ -33,7 +33,6 @@ public static SessionFactory getSessionFactory() {
 
 		return new MetadataSources(new StandardServiceRegistryBuilder().applySettings(properties).build())
 				.addAnnotatedClasses(shiv_31.Employee.class,shiv_31.Address.class)
-//				.addAnnotatedClass(shiv_31.Address.class)
 				.getMetadataBuilder().build().buildSessionFactory();
 		
 		

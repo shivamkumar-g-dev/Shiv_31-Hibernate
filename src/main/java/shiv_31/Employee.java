@@ -3,11 +3,15 @@ package shiv_31;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+
 
 @Entity
 public class Employee {
@@ -19,7 +23,12 @@ public class Employee {
 	private int salary;
 	
 	
-	@OneToMany
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "emp_address",
+        joinColumns = @JoinColumn(name = "emp_id"),
+        inverseJoinColumns = @JoinColumn(name = "address_id")
+    )
 	private List<Address> addresses;
 
 	public Employee() {
