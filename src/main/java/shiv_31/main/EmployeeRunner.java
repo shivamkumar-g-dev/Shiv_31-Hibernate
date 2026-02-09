@@ -29,25 +29,38 @@ public class EmployeeRunner {
 		
 		Employee emp1 = new Employee("Shivam", "M", 400000);
         Employee emp2 = new Employee("Avya", "F", 350000);
+        Employee emp3 = new Employee("Riya", "F", 550000);
+        Employee emp4 = new Employee("Nitin", "M", 250000);
+        
 
         Address add1 = new Address("Noida", "UP");
         Address add2 = new Address("Delhi", "DL");
+        Address add3 = new Address("Indirapuram", "UP");
+        Address add4 = new Address("Ghaziabad", "UP");
 
         List<Address> addressList = new ArrayList<>();
         addressList.add(add1);
         addressList.add(add2);
+        addressList.add(add3);
+        addressList.add(add4);
 
         emp1.setAddresses(addressList);
         emp2.setAddresses(addressList);
-
+        emp3.setAddresses(addressList);
+        emp4.setAddresses(addressList);
+ 
         Session session = EmpConfiguration.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
 
         session.persist(emp1);
         session.persist(emp2);
+        session.persist(emp3);
+        session.persist(emp4);
 
         tx.commit();
         session.close();
+        
+        
 
 		
 		
